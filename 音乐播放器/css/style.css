@@ -1,0 +1,216 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("iconfont.eot");
+  src: url("iconfont.eot?#iefix") format("embedded-opentype"), url("iconfont.woff") format("woff"), url("iconfont.ttf") format("truetype"), url("iconfont.svg#iconfont") format("svg");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: -webkit-linear-gradient(right, #bc24b7 30%, #781fa3 50%, #5621b8 80%);
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 600px;
+  margin-top: -300px;
+  margin-left: -500px;
+}
+.box .top {
+  height: 400px;
+}
+.box .top .disc {
+  float: left;
+  width: 374px;
+  height: 374px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 15px #000;
+  position: relative;
+}
+.box .top .disc .people_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+}
+.box .top .disc .people_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.box .top .disc .twig {
+  transform: rotate(-21deg);
+  position: absolute;
+  top: 0;
+  right: -20px;
+  transition: all 0.5s linear;
+  transform-origin: 60px 12px;
+}
+.box .top .word {
+  float: right;
+  width: 500px;
+  margin-top: 100px;
+  color: white;
+}
+.box .top .word .message {
+  text-align: center;
+}
+.box .top .word .message h1 {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 60px;
+  padding: 10px 0;
+}
+.box .top .word .message p {
+  font-size: 20px;
+  line-height: 20px;
+  margin-top: 30px;
+}
+.box .top .word .message p span {
+  padding-left: 10px;
+  font-size: 16px;
+}
+.box .top .word .player .player_btn {
+  padding: 0 20px;
+}
+.box .top .word .player .player_btn .btn1 {
+  float: left;
+  margin-top: 30px;
+}
+.box .top .word .player .player_btn .btn1 li {
+  float: left;
+  font-family: iconfont;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.box .top .word .player .player_btn .btn2 {
+  float: right;
+  margin-top: 30px;
+}
+.box .top .word .player .player_btn .btn2 li {
+  float: left;
+  position: relative;
+  font-family: iconfont;
+  padding: 0 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.box .top .word .player .player_btn .btn2 .voice_bar {
+  width: 100px;
+  height: 10px;
+  position: absolute;
+  left: 40px;
+  top: 6px;
+  background: white;
+  display: none;
+}
+.box .top .word .player .player_btn .btn2 .voice_bar .voice_bg {
+  height: 10px;
+  width: 60px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: darkred;
+}
+.box .top .word .player .player_btn .btn2 li:nth-of-type(3):hover .voice_bar {
+  display: block;
+}
+.box .top .word .player .progress_bar {
+  height: 10px;
+  width: 90%;
+  margin: 10px auto;
+  background: white;
+  position: relative;
+}
+.box .top .word .player .progress_bar .bg {
+  height: 10px;
+  width: 0px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: gray;
+}
+.box .top .word .player .progress_bar .long {
+  height: 14px;
+  width: 80px;
+  line-height: 14px;
+  font-size: 14px;
+  position: absolute;
+  left: -80px;
+  top: -2px;
+  color: white;
+}
+.box .top .word .player .progress_bar .long span {
+  float: left;
+  width: 40px;
+  height: 14px;
+}
+.box .bottom {
+  width: 100%;
+}
+.box .bottom ul {
+  width: 100%;
+  margin-top: 20px;
+  color: white;
+}
+.box .bottom ul li {
+  text-align: center;
+  float: left;
+  height: 80px;
+  width: 210px;
+  margin: 0 20px;
+  box-shadow: 2px 2px 15px #000000;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.box .bottom ul li h3 {
+  height: 40px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 40px;
+  background: rgba(194, 100, 200, 0.6);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.box .bottom ul li p {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+}
+.box .bottom ul li p span {
+  line-height: 40px;
+  font-size: 16px;
+  padding-left: 5px;
+}
+.box .bottom ul li:hover {
+  -webkit-filter: blur(1px);
+}
+
+@-webkit-keyframes run {
+  form {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>circle</title>
+		<style>
+			body {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="800" height="800" style="border: 1px solid black;"></canvas>
+		<script>
+			var canvas = document.getElementById('myCanvas');
+			var ctx = canvas.getContext('2d');
+			var deg=Math.PI/180;
+			var radius = 220;
+			
+			var timer = setInterval(function(){
+				var now=new Date(); 
+				var h=now.getHours(); 
+				var m=now.getMinutes(); 
+				var s=now.getSeconds(); 
+				var ms=now.getMilliseconds();
+				//  1hour = 30°   -->   60min = 30°  --> 1min = 0.5°
+				var hx=400+100*(Math.sin(h*30*deg+m*0.5*deg));
+				var hy=400-100*(Math.cos(h*30*deg+m*0.5*deg));
+				//  1min = 6°  --> 60second = 6°  -->  1second = 0.1°
+				var mx=400+130*(Math.sin(m*6*deg+s*0.1*deg));
+  				var my=400-130*(Math.cos(m*6*deg+s*0.1*deg));
+  				//  1s = 6°  --> 1000ms = 6°  --> 1ms = 0.006°
+				var sx=400+160*(Math.sin(s*6*deg+ms*0.006*deg));
+  				var sy=400-160*(Math.cos(s*6*deg+ms*0.006*deg));
+  				
+  				//清理重画
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+  				//画盘
+  				ctx.beginPath();
+				ctx.arc(400, 400, radius, 0, 2*Math.PI, false);
+				var grd = ctx.createRadialGradient(400,400,10,400,400,220);
+				grd.addColorStop(0,'#FFFFCC');
+				grd.addColorStop(1,'#FFFFFF');
+				ctx.fillStyle = grd;
+				ctx.fill();
+				ctx.strokeStyle='darkgray';
+				ctx.lineWidth=5;
+				ctx.stroke();
+				//画刻度
+				for(var i=0;i<12;i++){
+				    ctx.beginPath();
+				    ctx.lineWidth = 2;
+				    ctx.moveTo(400+(Math.sin(i*30*deg)*200),400-(Math.cos(i*30*deg)*200));
+				    ctx.lineTo(400+(Math.sin(i*30*deg)*220),400-(Math.cos(i*30*deg)*220));
+				    ctx.stroke();
+				}
+				//画数字
+				for(var i=0;i<12;i++){
+				  	var txts=[12,1,2,3,4,5,6,7,8,9,10,11];
+				  	ctx.beginPath();
+				  	ctx.font='25px KaiTi';
+				  	ctx.fillStyle='darkred';
+				  	ctx.fillText(txts[i],390+(Math.sin(i*30*deg)*180),410-(Math.cos(i*30*deg)*180))
+				}
+				//时针
+				ctx.beginPath();
+				ctx.moveTo(400,400);
+				ctx.lineTo(hx,hy);
+				ctx.strokeStyle='black';
+				ctx.lineCap='round';
+				ctx.lineWidth=5;
+				ctx.stroke();
+				//分针
+				ctx.beginPath();
+			  	ctx.moveTo(400,400);
+			  	ctx.lineTo(mx,my);
+			  	ctx.strokeStyle='gray';
+			  	ctx.lineCap='round';
+			  	ctx.lineWidth=3;
+			  	ctx.stroke();
+				//秒针
+				ctx.beginPath();
+				ctx.moveTo(400,400);
+				ctx.lineTo(sx,sy);
+				ctx.strokeStyle='gainsboro';
+				ctx.lineWidth=2;
+				ctx.stroke();
+			},1000)
+				
+		</script>
+	</body>
+
+</html>
